@@ -4,7 +4,8 @@ export default class PanelWorkspaceScrollExtension {
     enable() {
         this.scrollEventId = Main.panel.connect('scroll-event', (_actor, event) => Main.wm.handleWorkspaceScroll(event));
         this.clickEventId = Main.panel.connect('button-press-event', (_actor, event) => {
-            if (event.get_button() === 2) {  // Middle mouse button (button index 2) .  The left button is 1, right is 3 .
+            // Middle mouse button: 2, Left: 1, Right: 3
+            if (event.get_button() === 2) {
                 Main.overview.toggle();
                 return Clutter.EVENT_STOP;
             }
@@ -17,7 +18,7 @@ export default class PanelWorkspaceScrollExtension {
             Main.panel.disconnect(this.scrollEventId);
             this.scrollEventId = null;
         }
-        if (this.clickEventId) {
+        if (this.clickEventId != null) {
             Main.panel.disconnect(this.clickEventId);
             this.clickEventId = null;
         }
