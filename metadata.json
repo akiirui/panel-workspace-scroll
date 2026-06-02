@@ -1,16 +1,10 @@
 {
-  "uuid": "panel-workspace-scroll@polymeilex.github.io",
+  "uuid": "panel-workspace-scroll@akiirui.github.io",
   "extension-id": "panel-workspace-scroll",
   "name": "Panel Workspace Scroll",
   "description": "Switch workspace by mouse scroll on the panel and see the Overview by middle-clicking anywhere on the panel.\nIn contrast to alternative extensions purpose of this one is to use the native scroll handler of gnome-shell, so workspace scroll should behave exactly the same as overview scroll or workspace indicator scroll.",
-  "shell-version": [
-    "45",
-    "46",
-    "47",
-    "48",
-    "49",
-    "50"
-  ],
+  "shell-version": ["50"],
+  "url": "https://github.com/akiirui/gnome-shell-extension-panel-workspace-scroll",
   "original-authors": "marynczakbartlomiej@gmail.com",
-  "url": "https://github.com/PolyMeilex/gnome-shell-extension-panel-workspace-scroll"
+  "original-repository": "https://github.com/PolyMeilex/gnome-shell-extension-panel-workspace-scroll"
 }

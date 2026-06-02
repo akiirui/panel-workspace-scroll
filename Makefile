@@ -1,8 +1,21 @@
+UUID = panel-workspace-scroll@akiirui.github.io
+DIST_ARCHIVE = $(UUID).shell-extension.zip
 
-submit:
-	cd panel-workspace-scroll@polymeilex.github.io/ && zip -r ~/panelWorkspaceScroll.zip *
+build:
+	gnome-extensions pack -f --extra-source=LICENSE
 
-install:
-	rm -rf ~/.local/share/gnome-shell/extensions/panel-workspace-scroll@polymeilex.github.io
-	cp -r panel-workspace-scroll@polymeilex.github.io ~/.local/share/gnome-shell/extensions/
+clean:
+	rm $(DIST_ARCHIVE)
 
+install: uninstall build
+	gnome-extensions install -f $(DIST_ARCHIVE)
+	gnome-extensions enable $(UUID) || true
+	@echo "You need to restart GNOME Shell to apply changes"
+
+uninstall:
+	gnome-extensions uninstall $(UUID) || true
+
+spawn-gnome-shell:
+	env MUTTER_DEBUG_DUMMY_MODE_SPECS=1920x1080 \
+	 	MUTTER_DEBUG_DUMMY_MONITOR_SCALES=1 \
+		dbus-run-session -- gnome-shell --nested --wayland
